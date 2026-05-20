@@ -27,7 +27,7 @@ app.use(
   "/admin",
   adminAuth,
   createProxyMiddleware({
-    target: "http://Kutt:3000",
+    target: "http://Kutt-r-Ne.railway.internal:3000",
     changeOrigin: true
   })
 );
@@ -36,7 +36,7 @@ app.use(
 app.use(
   "/",
   createProxyMiddleware({
-    target: "http://Kutt:3000",
+    target: "http://Kutt-r-Ne.railway.internal:3000",
     changeOrigin: true
   })
 );
