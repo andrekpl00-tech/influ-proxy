@@ -25,7 +25,9 @@ app.use(
   "/api/links",
   createProxyMiddleware({
     target: ADMIN_UI_URL,
-    changeOrigin: true
+    changeOrigin: true,
+    cookieDomainRewrite: { "*": "" },
+    cookiePathRewrite: { "*": "" }
   })
 );
 
