@@ -4,6 +4,7 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 const app = express();
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "your-secret-key";
+const KUTT_URL = process.env.KUTT_URL || "http://Kutt-K1qn.railway.internal:3000";
 
 // 🔒 Middleware: protect /admin routes with Bearer token auth
 function adminAuth(req, res, next) {
@@ -27,7 +28,7 @@ app.use(
   "/admin",
   adminAuth,
   createProxyMiddleware({
-    target: "http://Kutt-r-Ne.railway.internal:3000",
+    target: KUTT_URL,
     changeOrigin: true
   })
 );
@@ -36,7 +37,7 @@ app.use(
 app.use(
   "/",
   createProxyMiddleware({
-    target: "http://Kutt-r-Ne.railway.internal:3000",
+    target: KUTT_URL,
     changeOrigin: true
   })
 );
