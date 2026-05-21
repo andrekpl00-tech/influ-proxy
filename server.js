@@ -20,6 +20,15 @@ app.use(
   })
 );
 
+// 🔗 Admin API: /api/links routes proxy to the kutt-admin-ui service
+app.use(
+  "/api/links",
+  createProxyMiddleware({
+    target: ADMIN_UI_URL,
+    changeOrigin: true
+  })
+);
+
 // ✅ Public: all other routes pass through for link access
 app.use(
   "/",
